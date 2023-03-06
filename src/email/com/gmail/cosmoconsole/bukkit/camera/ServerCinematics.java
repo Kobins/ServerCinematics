@@ -59,64 +59,64 @@ public class ServerCinematics extends JavaPlugin implements Listener, TabComplet
      * A player's path is MODIFIED_PATH if the player has modified it and it hasn't been saved since.
      */
     public final String MODIFIED_PATH = "";
-    final double SPDLIMIT = 0.5;
-    final double CAN_TURN = 2.5;
-    final double DEFSPEED = 5.0;
-    final int CALCPOINTS = 20;
-    static ServerCinematics instance;
-    static long pbid = 0;
-    File paths;
+    public final double SPDLIMIT = 0.5;
+    public final double CAN_TURN = 2.5;
+    public final double DEFSPEED = 5.0;
+    public final int CALCPOINTS = 20;
+    public static ServerCinematics instance;
+    public static long pbid = 0;
+    public File paths;
     // player info
-    HashMap<UUID, Boolean> teleport;
-    HashMap<UUID, Boolean> pathless;
-    HashMap<UUID, Double> speed;
-    HashMap<UUID, String> pathnames;
+    public HashMap<UUID, Boolean> teleport;
+    public HashMap<UUID, Boolean> pathless;
+    public HashMap<UUID, Double> speed;
+    public HashMap<UUID, String> pathnames;
     // path info
-    HashMap<UUID, ArrayList<Location>> waypoints; // location
-    HashMap<UUID, ArrayList<Double>> waypoints_s; // speed
-    HashMap<UUID, ArrayList<Double>> waypoints_y; // yaw
-    HashMap<UUID, ArrayList<Double>> waypoints_p; // pitch
-    HashMap<UUID, ArrayList<String>> waypoints_m; // message
-    HashMap<UUID, ArrayList<List<String>>> waypoints_c; // commands
-    HashMap<UUID, ArrayList<Integer>> waypoints_l; // waypoint flags
-    HashMap<UUID, ArrayList<Double>> waypoints_d; // delay
-    HashMap<UUID, ArrayList<Boolean>> waypoints_i; // instant?
-    HashMap<UUID, Integer> waypoints_f; // path flags
-    HashMap<UUID, Double> waypoints_t; // time to play path, or -1 if not yet determined
+    public HashMap<UUID, ArrayList<Location>> waypoints; // location
+    public HashMap<UUID, ArrayList<Double>> waypoints_s; // speed
+    public HashMap<UUID, ArrayList<Double>> waypoints_y; // yaw
+    public HashMap<UUID, ArrayList<Double>> waypoints_p; // pitch
+    public HashMap<UUID, ArrayList<String>> waypoints_m; // message
+    public HashMap<UUID, ArrayList<List<String>>> waypoints_c; // commands
+    public HashMap<UUID, ArrayList<Integer>> waypoints_l; // waypoint flags
+    public HashMap<UUID, ArrayList<Double>> waypoints_d; // delay
+    public HashMap<UUID, ArrayList<Boolean>> waypoints_i; // instant?
+    public HashMap<UUID, Integer> waypoints_f; // path flags
+    public HashMap<UUID, Double> waypoints_t; // time to play path, or -1 if not yet determined
     // playlist info
-    HashMap<UUID, ArrayList<String>> pl_paths;
-    HashMap<UUID, Boolean> pl_playing;
-    HashMap<UUID, Boolean> pl_looping;
-    HashMap<UUID, Integer> pl_index;
-    HashMap<UUID, Double> multipl;
-    UUID globalMode;
-    int timer_id;
+    public HashMap<UUID, ArrayList<String>> pl_paths;
+    public HashMap<UUID, Boolean> pl_playing;
+    public HashMap<UUID, Boolean> pl_looping;
+    public HashMap<UUID, Integer> pl_index;
+    public HashMap<UUID, Double> multipl;
+    public UUID globalMode;
+    public int timer_id;
     // temp info
-    HashMap<UUID, Double> speed_a;
-    HashMap<UUID, Boolean> old_af;
-    HashMap<UUID, Boolean> old_f;
-    HashMap<UUID, GameMode> old_gm;
-    HashMap<UUID, Float> old_fsp;
-    HashMap<UUID, Boolean> playing;
-    HashMap<UUID, Boolean> paused;
+    public HashMap<UUID, Double> speed_a;
+    public HashMap<UUID, Boolean> old_af;
+    public HashMap<UUID, Boolean> old_f;
+    public HashMap<UUID, GameMode> old_gm;
+    public HashMap<UUID, Float> old_fsp;
+    public HashMap<UUID, Boolean> playing;
+    public HashMap<UUID, Boolean> paused;
     // interpolated path info (temp)
-    HashMap<UUID, ArrayList<Location>> wx; // location
-    HashMap<UUID, ArrayList<Double>> wxs; // speed
-    HashMap<UUID, ArrayList<Double>> wxy; // yaw
-    HashMap<UUID, ArrayList<Double>> wxp; // pitch
-    HashMap<UUID, ArrayList<String>> wxm; // message
-    HashMap<UUID, ArrayList<List<String>>> wxc; // commands
-    HashMap<UUID, ArrayList<Integer>> wxl; // waypoint flags
-    HashMap<UUID, ArrayList<Double>> wxd; // delay
-    HashMap<UUID, ArrayList<Boolean>> wxi; // instant?
-    HashMap<UUID, ArrayList<Boolean>> wxtemp; // is point interpolated?
-    HashMap<UUID, ArrayList<Integer>> wxindx; // actual index of original point
-    HashMap<UUID, Integer> wxf;
-    HashMap<UUID, Boolean> wm;
-    HashMap<UUID, Location> old_loc;
-    HashMap<UUID, Integer> timer_ids;
-    HashMap<UUID, Long> pbids;
-    ArrayList<Player> tempJoins;
+    public HashMap<UUID, ArrayList<Location>> wx; // location
+    public HashMap<UUID, ArrayList<Double>> wxs; // speed
+    public HashMap<UUID, ArrayList<Double>> wxy; // yaw
+    public HashMap<UUID, ArrayList<Double>> wxp; // pitch
+    public HashMap<UUID, ArrayList<String>> wxm; // message
+    public HashMap<UUID, ArrayList<List<String>>> wxc; // commands
+    public HashMap<UUID, ArrayList<Integer>> wxl; // waypoint flags
+    public HashMap<UUID, ArrayList<Double>> wxd; // delay
+    public HashMap<UUID, ArrayList<Boolean>> wxi; // instant?
+    public HashMap<UUID, ArrayList<Boolean>> wxtemp; // is point interpolated?
+    public HashMap<UUID, ArrayList<Integer>> wxindx; // actual index of original point
+    public HashMap<UUID, Integer> wxf;
+    public HashMap<UUID, Boolean> wm;
+    public HashMap<UUID, Location> old_loc;
+    public HashMap<UUID, Integer> timer_ids;
+    public HashMap<UUID, Long> pbids;
+    public ArrayList<Player> tempJoins;
     
     static {
         ServerCinematics.instance = null;
